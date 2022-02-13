@@ -11,7 +11,7 @@ If you like the idea click ⭐ on the repo and stay tuned.
 This uses conventions I personally adopted:
 
 1. My settings are exported using [this script](https://github.com/drmikecrowe/bash-it/blob/master/backup-settings.sh) to persist my defaults. To enable, I run this [output bash file](https://github.com/drmikecrowe/bash-it/blob/master/bash_it_config_default.sh).
-2. I store my startup script (with my config) [here])(https://github.com/drmikecrowe/bash-it/blob/master/personal-startup.sh)
+2. I store my startup script (with my config) [here](https://github.com/drmikecrowe/bash-it/blob/master/personal-startup.sh)
 
 This config allows me to simply add this at the bottom of `.bashrc`:
 
