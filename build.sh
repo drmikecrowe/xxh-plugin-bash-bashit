@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CDIR="$(cd "$(dirname "$0")" && pwd)"
+CDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 build_dir=$CDIR/build
 
 while getopts A:K:q option
@@ -13,21 +13,10 @@ do
   esac
 done
 
-rm -rf $build_dir
-mkdir -p $build_dir
+cd $CDIR
+rm -rf $build_dir && mkdir -p $build_dir
 
-for f in pluginrc.sh
+for f in *prerun.sh home *pluginrc.sh
 do
-    cp $CDIR/$f $build_dir/
+    cp -r $CDIR/$f $build_dir/
 done
-
-cd $build_dir
-url='git://github.com/ohmybash/oh-my-bash.git'
-home_dir=oh-my-bash
-
-[ $QUIET ] && arg_q='-q' || arg_q=''
-if [ -x "$(command -v git)" ]; then
-  git clone $arg_q --depth=1 $url $home_dir
-else
-  echo You should install git: https://duckduckgo.com/?q=install+git+on+linux
-fi
